@@ -1,0 +1,28 @@
+package newchain;
+
+import java.util.Date; 
+
+public class Block {
+	public String hash; 
+	public String previousHash;
+	private String data; //actual message data
+	private long timeStamp; // time in milliseconds 
+	
+	//block constructor 
+	public Block (String data, String previousHash){
+		this.data = data; 
+		this.previousHash = previousHash;
+		this.timeStamp = new Date().getTime();
+		this.hash = calculateHash();
+	}
+	
+	//calculate the Hash using the applySha256
+	public String calculateHash() {
+		String calculatedhash = StringUtil.applySha256( previousHash + Long.toString(timeStamp) + data );
+			return calculatedhash;
+	}
+	
+	
+	
+
+}

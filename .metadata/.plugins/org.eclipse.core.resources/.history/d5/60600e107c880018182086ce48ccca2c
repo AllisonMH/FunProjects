@@ -1,0 +1,5 @@
+package newchain;
+
+public class Block {
+
+}
